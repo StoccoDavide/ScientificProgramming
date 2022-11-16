@@ -95,10 +95,10 @@ For the *Broyden’s Combined Method*, the step for the inverse approximate Jaco
 
 $$
 \begin{align}
-G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over {C^T {\Delta F_{k}}}} \\[0.25cm]
+G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over {C^T {\Delta F_{k}}}} \\
 C_{k} &=
 \begin{cases}
-G_{k}^{-1\,T} \Delta x_{k} & \mathrm{(BGM)} \quad \displaystyle{{|x_{k}^T x_{k-1}|} \over {|x_{k}^T G_{k}^{-1} x_{k}|}} < {|{F_{k}^T F_{k-1}|} \over {F_{k}^T F_{k}}} \\[0.25cm]
+G_{k}^{-1\,T} \Delta x_{k} & \mathrm{(BGM)} \quad \displaystyle{{|x_{k}^T x_{k-1}|} \over {|x_{k}^T G_{k}^{-1} x_{k}|}} < {|{F_{k}^T F_{k-1}|} \over {F_{k}^T F_{k}}} \\
 \Delta F_{k}               & \mathrm{(BBM)} \quad \mathrm{otherwise}
 \end{cases}
 \end{align}
