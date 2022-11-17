@@ -9,18 +9,24 @@ Academic year: *2022/2023*
 
 This repository contains a small collection of Quasi-Newton solvers. In particular, the methods that are implemented are the following:
 
-  - Greenstadt’s 1st Method;
-  - Greenstadt’s 2nd Method;
-  - Eirola-Nevanlinna Method
-  - Broyden’s Bad Method;
-  - Broyden’s Good Method;
-  - Broyden’s Combined Method;
+  - Greenstadt’s 1st Method (G1M);
+  - Greenstadt’s 2nd Method (G1M);
+  - Eirola-Nevanlinna Method (ENM);
+  - Broyden’s Bad Method (BGM);
+  - Broyden’s Good Method (BBM);
+  - Broyden’s Combined Method (BCM);
 
 and their respective dumped versions (indicated with the prefix “D–XXM”). We will compare the performance of the algorithms in terms of function evaluations, iterations, convergence speed, and success ratio on a set of tests.
 
-## Implementation
+### Structure and Implementation
 
 All methods implemented in this small library have the same frame. In particular, an abstract class ``Solver`` is implemented. This class contains all the evaluation counters, the damping parameter, and the ``solve()`` and ``solveDumped()`` methods. On the other hand, the methods ``method()``, ``step()``, and ``update()`` are declared as virtual and will later be overridden in the specialised classes that will implement the above solvers. The ``Solver`` class also has all the setters and getters to trick it.
+
+Caro ``ppizarror``, sono molto contentento che la libreria possa esserti utile e il lavoro sia apprezzato da altri programmatori come te.
+
+Venendo al punto, capisco bene la tua richiesta e apprezzo molto i tuoi suggerimenti. La struttura attuale della libreria è stata scelta *ad hoc* per le nostre necessità. La Libreria ``Utils`` è un sottomodulo molto grande ma permette di avere moltissime utilities preparate, testate e pronte per l'utilizzo. In particolare implementa un AABBtree n-dimensionale molto più potente dei quello implementato da ``acme``. Prova a darci una occhiata nel caso ti potesse servire!
+
+Nelle prossime versioni (che però non verrà rilasciata a breve a causa di un attuale carico di lavoro eccessivo) cercherò sicuramente di dare spazio alle tue richieste inserendo in ``CMakeList`` la possibiltà di escludere ``Utils`` e utilizzare solo ``acme`` e ``Eigen``.
 
 ### Implementation
 
@@ -34,7 +40,7 @@ F_{k}        &= F_{k}(x_{k})    \\
 \end{align}
 $$
 
-#### Greenstadt’s 1st Method (G1M)
+#### Greenstadt’s 1st Method
 
 For the *Greenstadt’s 1st Method*, the step for the inverse approximate Jacobian matrix update is:
 
@@ -45,7 +51,7 @@ C_{k}        &= F_{k}
 \end{align}
 $$
 
-#### Greenstadt’s 2nd Method (G2M)
+#### Greenstadt’s 2nd Method
 
 For the *Greenstadt’s 2nd Method*, the step for the inverse approximate Jacobian matrix update is:
 
@@ -56,7 +62,7 @@ C_{k}        &= G_{k}^{-1\,T} G_{k}^{-1} \Delta F_{k}
 \end{align}
 $$
 
-#### Broyden’s Ugly Method (BUM)
+#### Broyden’s Ugly Method
 
 For the *Broyden’s Ugly Method*, the step for the approximate Jacobian matrix update is:
 
@@ -67,7 +73,7 @@ C_{k}   &= G_{k}^{T} G_{k} \Delta x_{k}
 \end{align}
 $$
 
-#### Broyden’s Bad Method (BBM)
+#### Broyden’s Bad Method
 
 For the *Broyden’s Bad Method*, the step for the inverse approximate Jacobian matrix update is:
 
@@ -78,7 +84,7 @@ C_{k}        &= \Delta F_{k}
 \end{align}
 $$
 
-#### Broyden’s Good Method (BGM)
+#### Broyden’s Good Method
 
 For the *Broyden’s Good Method*, the step update for the inverse approximate Jacobian matrix is:
 
@@ -89,7 +95,7 @@ C_{k}        &= G_{k}^{-1\,T} \Delta x_{k}
 \end{align}
 $$
 
-#### Broyden’s Combined Method (BCM)
+#### Broyden’s Combined Method
 
 For the *Broyden’s Combined Method*, the step for the inverse approximate Jacobian matrix update is:
 
@@ -104,7 +110,7 @@ G_{k}^{-1\,T} \Delta x_{k} & \mathrm{(BGM)} \quad \displaystyle{{|x_{k}^T x_{k-1
 \end{align}
 $$
 
-#### Eirola-Nevanlinna Method (ENM)
+#### Eirola-Nevanlinna Method
 
 For the *Eirola-Nevanlinna Method*, the step for the inverse approximate Jacobian matrix update is:
 
@@ -116,9 +122,17 @@ Q_{k} &= F(x_{k} + P_k) - F_{k}
 \end{align}
 $$
 
-## References
+### Tests
 
-  - Broyden
-  - Broyden
-  -
+  - Rosenbrock function (2D) with solution $(x,y) = (1,1)$ if $a \neq 0$, $(x,y) = (0,0)$ if $a = 0$:
+  $$
+  \vec{f}(x,y) = [(a-x)^2, b(y-x^2)^2]^T
+  $$
+
+### References
+
+  - Charles G. Broyden. A class of methods for solving nonlinear simultaneous equations. *Mathematics of computation*, 19(92):577–593, 1965.
+  - J. M. Martinez and L. S. Ochi. Sobre dois métodos de broyden. *Matematica Aplicàda e Computacional*, 1(2):135–143, 1982.
+  - Timo Eirola and Olavi Nevanlinna. Accelerating with rank-one updates. *Linear Algebra and its Applications*, 121:511–520, 1989.
+  - E. Spedicato and J. Greenstadt. On some classes of variationally derived quasi-newton methods for systems of nonlinear algebraic equations. *Numerische Mathematik*, 29(4):363–380, 1978.
 

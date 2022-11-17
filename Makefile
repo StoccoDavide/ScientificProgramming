@@ -48,14 +48,14 @@ build/%.o: src/%.cc
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 tests: $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_00.cc -o bin/test_00 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_Rosenbrock.cc -o bin/test_Rosenbrock $(LIBS)
 
 clean:
 	rm -rf $(TARGET)
 	rm -rf $(OBJECTS)
 
 run:
-	./bin/test_00
+	./bin/test_Rosenbrock
 
 #
 # That's All Folks!
