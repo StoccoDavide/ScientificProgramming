@@ -22,12 +22,6 @@ and their respective dumped versions (indicated with the prefix “D–XXM”). 
 
 All methods implemented in this small library have the same frame. In particular, an abstract class ``Solver`` is implemented. This class contains all the evaluation counters, the damping parameter, and the ``solve()`` and ``solveDumped()`` methods. On the other hand, the methods ``method()``, ``step()``, and ``update()`` are declared as virtual and will later be overridden in the specialised classes that will implement the above solvers. The ``Solver`` class also has all the setters and getters to trick it.
 
-Caro ``ppizarror``, sono molto contentento che la libreria possa esserti utile e il lavoro sia apprezzato da altri programmatori come te.
-
-Venendo al punto, capisco bene la tua richiesta e apprezzo molto i tuoi suggerimenti. La struttura attuale della libreria è stata scelta *ad hoc* per le nostre necessità. La Libreria ``Utils`` è un sottomodulo molto grande ma permette di avere moltissime utilities preparate, testate e pronte per l'utilizzo. In particolare implementa un AABBtree n-dimensionale molto più potente dei quello implementato da ``acme``. Prova a darci una occhiata nel caso ti potesse servire!
-
-Nelle prossime versioni (che però non verrà rilasciata a breve a causa di un attuale carico di lavoro eccessivo) cercherò sicuramente di dare spazio alle tue richieste inserendo in ``CMakeList`` la possibiltà di escludere ``Utils`` e utilizzare solo ``acme`` e ``Eigen``.
-
 ### Implementation
 
 We will make use of the following quantities:
@@ -46,7 +40,7 @@ For the *Greenstadt’s 1st Method*, the step for the inverse approximate Jacobi
 
 $$
 \begin{align}
-G_{k+1}^{-1} &= G_{k}^{-1} - {(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}} \\
+G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}}} \\
 C_{k}        &= F_{k}
 \end{align}
 $$
@@ -57,7 +51,7 @@ For the *Greenstadt’s 2nd Method*, the step for the inverse approximate Jacobi
 
 $$
 \begin{align}
-G_{k+1}^{-1} &= G_{k}^{-1} - {(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}} \\
+G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}}} \\
 C_{k}        &= G_{k}^{-1\,T} G_{k}^{-1} \Delta F_{k}
 \end{align}
 $$
@@ -68,7 +62,7 @@ For the *Broyden’s Ugly Method*, the step for the approximate Jacobian matrix 
 
 $$
 \begin{align}
-G_{k+1} &= G_{k} - {(G_{k} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}} \\
+G_{k+1} &= G_{k} - {{(G_{k} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}}} \\
 C_{k}   &= G_{k}^{T} G_{k} \Delta x_{k}
 \end{align}
 $$
@@ -79,7 +73,7 @@ For the *Broyden’s Bad Method*, the step for the inverse approximate Jacobian 
 
 $$
 \begin{align}
-G_{k+1}^{-1} &= G_{k}^{-1} - {(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}} \\
+G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}}} \\
 C_{k}        &= \Delta F_{k}
 \end{align}
 $$
@@ -90,7 +84,7 @@ For the *Broyden’s Good Method*, the step update for the inverse approximate J
 
 $$
 \begin{align}
-G_{k+1}^{-1} &= G_{k}^{-1} - {(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}} \\
+G_{k+1}^{-1} &= G_{k}^{-1} - {{(G_{k}^{-1} {\Delta F_{k}} - {\Delta x_{k}}) C_{k}^T} \over C^T {\Delta F_{k}}} \\
 C_{k}        &= G_{k}^{-1\,T} \Delta x_{k}
 \end{align}
 $$
@@ -130,7 +124,7 @@ $$
   \vec{f}(x,y) = [(a-x)^2, b(y-x^2)^2]^T
   $$
 
-  ![plot](./Example.png)
+  <img src="https://github.com/StoccoDavide/ScientificProgramming/main/Example.png" width="600">
 
 ### References
 
