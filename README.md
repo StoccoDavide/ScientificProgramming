@@ -124,7 +124,7 @@ $$
   \vec{f}(x,y) = [(a-x)^2, b(y-x^2)^2]^T
   $$
 
-  <img src="https://github.com/StoccoDavide/ScientificProgramming/main/Example.png" width="600">
+  <img src="https://github.com/StoccoDavide/ScientificProgramming/blob/main/Example.png" width="500">
 
 ### References
 
