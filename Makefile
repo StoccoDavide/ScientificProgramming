@@ -53,6 +53,7 @@ tests: $(OBJECTS)
 clean:
 	rm -rf $(TARGET)
 	rm -rf $(OBJECTS)
+	rm -rf ./bin/*
 
 run:
 	./bin/test_Rosenbrock

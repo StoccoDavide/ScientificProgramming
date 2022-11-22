@@ -66,7 +66,7 @@ namespace QuasiNewton
     )
     const
     {
-      return this->eval(X, F);
+      return this->eval(X,F);
     }
 
   }; // class SolverBaseFunction
@@ -135,10 +135,18 @@ namespace QuasiNewton
     bool    m_Converged      = false;        //!< Convergence boolean
     real    m_Alpha          = real(0.9);    //!< Relaxation factor
 
+    std::vector<vecT> m_HistoryX; //!< History for X values
+    std::vector<vecT> m_HistoryF; //!< History for F values
+    std::vector<vecT> m_HistoryD; //!< History for D values
+
   public:
     //! Class constructor
     Solver(void)
     {
+      integer size = this->m_MaxIterations * this->m_MaxRelaxations;
+      this->m_HistoryX.reserve(size);
+      this->m_HistoryF.reserve(size);
+      this->m_HistoryD.reserve(size);
     }
 
     //! Set algorithm tolerance
@@ -320,6 +328,30 @@ namespace QuasiNewton
       return this->m_Converged;
     }
 
+    //! Get history of X values
+    std::vector<vecT> const &
+    outHistoryX(void)
+    const
+    {
+      return this->m_HistoryX;
+    }
+
+    //! Get history of F values
+    std::vector<vecT> const &
+    outHistoryF(void)
+    const
+    {
+      return this->m_HistoryF;
+    }
+
+    //! Get history of D values
+    std::vector<vecT> const &
+    outHistoryD(void)
+    const
+    {
+      return this->m_HistoryD;
+    }
+
     //! Solve non-linear system of equations F(X)=0
     bool
     solve(
@@ -391,6 +423,9 @@ namespace QuasiNewton
       this->m_Relaxations = integer(0);
       this->m_Residuals   = real(0.0);
       this->m_Converged   = false;
+      this->m_HistoryX.clear();
+      this->m_HistoryF.clear();
+      this->m_HistoryD.clear();
     }
 
     //! Perform function evaluation
@@ -401,7 +436,7 @@ namespace QuasiNewton
     )
     {
       ++this->m_Evaluations;
-      this->m_FunctionPtr->eval(X, F);
+      this->m_FunctionPtr->eval(X,F);
     }
 
     //! Solve non-linear system of equations F(X)=0
@@ -438,6 +473,11 @@ namespace QuasiNewton
       {
         // Calculate step
         this->step(F0, G0, D0);
+
+        // Update history
+        this->m_HistoryX.push_back(X0);
+        this->m_HistoryF.push_back(F0);
+        this->m_HistoryD.push_back(D0);
 
         // Check convergence
         F0_norm = F0.norm();
@@ -521,6 +561,11 @@ namespace QuasiNewton
       {
         // Calculate step
         this->step(F0, G0, D0);
+
+        // Update history
+        this->m_HistoryX.push_back(X0);
+        this->m_HistoryF.push_back(F0);
+        this->m_HistoryD.push_back(D0);
 
         // Check convergence
         F0_norm = F0.norm();

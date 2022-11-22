@@ -69,45 +69,45 @@ namespace QuasiNewton
   template class BroydenGood<vec2, mat2>;
   template class BroydenGood<vec3, mat3>;
   template class BroydenGood<vec4, mat4>;
-  template class BroydenGood<vec5, mat5>;
-  template class BroydenGood<vec6, mat6>;
-  template class BroydenGood<vec7, mat7>;
-  template class BroydenGood<vec8, mat8>;
-  template class BroydenGood<vec9, mat9>;
-  template class BroydenGood<vec10, mat10>;
+  //template class BroydenGood<vec5, mat5>;
+  //template class BroydenGood<vec6, mat6>;
+  //template class BroydenGood<vec7, mat7>;
+  //template class BroydenGood<vec8, mat8>;
+  //template class BroydenGood<vec9, mat9>;
+  //template class BroydenGood<vec10, mat10>;
 
   // Broyden's Good Method
   template class BroydenCombined<vec2, mat2>;
   template class BroydenCombined<vec3, mat3>;
   template class BroydenCombined<vec4, mat4>;
-  template class BroydenCombined<vec5, mat5>;
-  template class BroydenCombined<vec6, mat6>;
-  template class BroydenCombined<vec7, mat7>;
-  template class BroydenCombined<vec8, mat8>;
-  template class BroydenCombined<vec9, mat9>;
-  template class BroydenCombined<vec10, mat10>;
+  //template class BroydenCombined<vec5, mat5>;
+  //template class BroydenCombined<vec6, mat6>;
+  //template class BroydenCombined<vec7, mat7>;
+  //template class BroydenCombined<vec8, mat8>;
+  //template class BroydenCombined<vec9, mat9>;
+  //template class BroydenCombined<vec10, mat10>;
 
   // Greenstadt's 1st Method
   template class Greenstadt1<vec2, mat2>;
   template class Greenstadt1<vec3, mat3>;
   template class Greenstadt1<vec4, mat4>;
-  template class Greenstadt1<vec5, mat5>;
-  template class Greenstadt1<vec6, mat6>;
-  template class Greenstadt1<vec7, mat7>;
-  template class Greenstadt1<vec8, mat8>;
-  template class Greenstadt1<vec9, mat9>;
-  template class Greenstadt1<vec10, mat10>;
+  //template class Greenstadt1<vec5, mat5>;
+  //template class Greenstadt1<vec6, mat6>;
+  //template class Greenstadt1<vec7, mat7>;
+  //template class Greenstadt1<vec8, mat8>;
+  //template class Greenstadt1<vec9, mat9>;
+  //template class Greenstadt1<vec10, mat10>;
 
   // Greenstadt's 2nd Method
   template class Greenstadt2<vec2, mat2>;
   template class Greenstadt2<vec3, mat3>;
   template class Greenstadt2<vec4, mat4>;
-  template class Greenstadt2<vec5, mat5>;
-  template class Greenstadt2<vec6, mat6>;
-  template class Greenstadt2<vec7, mat7>;
-  template class Greenstadt2<vec8, mat8>;
-  template class Greenstadt2<vec9, mat9>;
-  template class Greenstadt2<vec10, mat10>;
+  //template class Greenstadt2<vec5, mat5>;
+  //template class Greenstadt2<vec6, mat6>;
+  //template class Greenstadt2<vec7, mat7>;
+  //template class Greenstadt2<vec8, mat8>;
+  //template class Greenstadt2<vec9, mat9>;
+  //template class Greenstadt2<vec10, mat10>;
 
 
 } // namespace QuasiNewton

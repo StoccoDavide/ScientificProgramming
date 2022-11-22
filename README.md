@@ -125,9 +125,12 @@ $$
 ### Tests
 
   - Rosenbrock function (2D) with solution $(x,y) = (1,1)$ if $a \neq 0$, $(x,y) = (0,0)$ if $a = 0$:
+
   $$
   \vec{f}(x,y) = [(a-x)^2, b(y-x^2)^2]^T
   $$
+
+  ![plot](./Example.png)
 
 ### References
 
@@ -135,4 +138,3 @@ $$
   - J. M. Martinez and L. S. Ochi. Sobre dois métodos de broyden. *Matematica Aplicàda e Computacional*, 1(2):135–143, 1982.
   - Timo Eirola and Olavi Nevanlinna. Accelerating with rank-one updates. *Linear Algebra and its Applications*, 121:511–520, 1989.
   - E. Spedicato and J. Greenstadt. On some classes of variationally derived quasi-newton methods for systems of nonlinear algebraic equations. *Numerische Mathematik*, 29(4):363–380, 1978.
-
