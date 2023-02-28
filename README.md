@@ -1,8 +1,8 @@
 # Project for the PhD course of "Scientific Programming"
 
-Course name: *Scientific Programming*
-Professor name: *Enrico Bertolazzi*
-PhD Student: *Davide Stocco*
+Course name: *Scientific Programming* \
+Professor: *Enrico Bertolazzi* \
+PhD Student: *Davide Stocco* \
 Academic year: *2022/2023*
 
 ## Introduction
@@ -116,7 +116,7 @@ Q_{k} &= F(x_{k} + P_k) - F_{k}
 \end{align}
 $$
 
-### Tests
+### Test
 
   - Rosenbrock function (2D) with solution $(x,y) = (1,1)$ if $a \neq 0$, $(x,y) = (0,0)$ if $a = 0$:
 
@@ -128,7 +128,15 @@ $$
 
 ### References
 
-  - Charles G. Broyden. A class of methods for solving nonlinear simultaneous equations. *Mathematics of computation*, 19(92):577–593, 1965.
-  - J. M. Martinez and L. S. Ochi. Sobre dois métodos de broyden. *Matematica Aplicàda e Computacional*, 1(2):135–143, 1982.
-  - Timo Eirola and Olavi Nevanlinna. Accelerating with rank-one updates. *Linear Algebra and its Applications*, 121:511–520, 1989.
-  - E. Spedicato and J. Greenstadt. On some classes of variationally derived quasi-newton methods for systems of nonlinear algebraic equations. *Numerische Mathematik*, 29(4):363–380, 1978.
+  - Charles G. Broyden. \
+    A class of methods for solving nonlinear simultaneous equations. \
+    *Mathematics of computation*, 19(92):577–593, 1965.
+  - J. M. Martinez and L. S. Ochi. \
+    Sobre dois métodos de broyden. \
+    *Matematica Aplicàda e Computacional*, 1(2):135–143, 1982.
+  - Timo Eirola and Olavi Nevanlinna. \
+    Accelerating with rank-one updates. \
+    *Linear Algebra and its Applications*, 121:511–520, 1989.
+  - E. Spedicato and J. Greenstadt. \
+    On some classes of variationally derived quasi-newton methods for systems of nonlinear algebraic equations. \
+    *Numerische Mathematik*, 29(4):363–380, 1978.
